@@ -11,6 +11,13 @@ basic.forever(function () {
         edubitMotors.runMotor(MotorChannel.M1, MotorDirection.Forward, edubitPotentioBit.readPotValue())
         edubitTrafficLightBit.setLed(LedColor.Green, edubitTrafficLightBit.digitalStatePicker(DigitalIoState.Off))
         edubitTrafficLightBit.setLed(LedColor.Red, edubitTrafficLightBit.digitalStatePicker(DigitalIoState.On))
+        images.createBigImage(`
+            # # # . . # # . . #
+            . . . . . . . . . .
+            . . # # # . . # # .
+            . . . . . . . . . .
+            . # . # # # . # # #
+            `).scrollImage(1, edubitPotentioBit.readPotValue())
     } else {
         edubitMotors.brakeMotor(MotorChannel.M1)
         edubitTrafficLightBit.setLed(LedColor.Red, edubitTrafficLightBit.digitalStatePicker(DigitalIoState.Off))
